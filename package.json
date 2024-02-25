@@ -2,11 +2,10 @@
   "name": "credit-transfer-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "app.ts",
-  
+  "main": "index.ts",
   "scripts": {
-      "start": "node src/app.ts",
-    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
+      "start": "node src/index.ts",
+    "dev": "ts-node-dev --respawn --transpile-only src/index.ts",
     "build": "tsc",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
