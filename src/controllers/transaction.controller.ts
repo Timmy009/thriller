@@ -36,22 +36,36 @@ export const transferFunds = async (req: Request, res: Response): Promise<void> 
       return;
     }
 
-    
     sender.balance -= amount + fee;
     await sender.save();
 
     recipient.balance += amount;
     await recipient.save();
 
- 
-    await Transaction.create({
+    const senderTransaction = await Transaction.create({
       userId: senderId,
+      sender: {
+        id: senderId,
+        name: sender.lastName + " " + sender.firstName,
+      },
+      recipient: {
+        id: recipientId,
+       name: recipient.lastName + " " + recipient.firstName,
+      },
       amount: amount + fee,
       type: 'debit',
     });
 
-    await Transaction.create({
+    const recipientTransaction = await Transaction.create({
       userId: recipientId,
+      sender: {
+        id: senderId,
+     name: sender.lastName + " " + sender.firstName,
+      },
+      recipient: {
+        id: recipientId,
+            name: recipient.lastName + " " + recipient.firstName,
+      },
       amount,
       type: 'credit',
     });
