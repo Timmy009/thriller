@@ -1,0 +1,43 @@
+{
+  "name": "credit-transfer-backend",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "ts-node-dev --respawn --transpile-only src/app.ts",
+    "build": "tsc",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@types/bcrypt": "^5.0.2",
+    "@types/bcryptjs": "^2.4.6",
+    "@types/express": "^4.17.21",
+    "@types/express-session": "^1.17.10",
+    "@types/mongoose": "^5.11.97",
+    "@types/node": "^20.11.20",
+    "bcrypt": "^5.1.1",
+    "bcryptjs": "^2.4.3",
+    "config": "^3.3.11",
+    "connect-mongo": "^3.1.2",
+    "cookie-parser": "^1.4.6",
+    "cors": "^2.8.5",
+    "dayjs": "^1.11.10",
+    "express": "^4.18.2",
+    "express-session": "^1.18.0",
+    "mongoose": "^8.2.0",
+    "nodemon": "^3.1.0",
+    "pino": "^8.19.0",
+    "ts-node": "^10.9.2",
+    "ts-node-dev": "^2.0.0",
+    "typescript": "^5.3.3"
+  },
+  "devDependencies": {
+    "@types/config": "^3.3.3",
+    "@types/connect-mongo": "^3.1.3",
+    "@types/cookie-parser": "^1.4.6",
+    "@types/cors": "^2.8.17"
+  }
+}
