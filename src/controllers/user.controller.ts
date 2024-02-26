@@ -14,12 +14,13 @@ export const createUser = async (req: Request, res: Response): Promise<void> => 
   try {
     const {firstName,lastName, email, password } = req.body;
 
-   const existuser = await User.findOne({ email });
+   const existUser = await User.findOne({ email });
 
-     if (existuser) {
-      res.status(401).json({ error: 'Email already exists.' });
+     if (existUser) {
+      res.status(409).json({ error: 'Email already exists', errorCode: 'EMAIL_EXISTS' });
       return;
     }
+    
 
     const hashedPassword = await bcrypt.hash(password, 10);
     const newUser = new User({ firstName,lastName, email, password: hashedPassword });
@@ -39,13 +40,11 @@ export const loginUser = async (req: Request, res: Response): Promise<void> => {
     const user = await User.findOne({ email });
 
     if (!user || !(await bcrypt.compare(password, user.password))) {
-      res.status(401).json({ error: 'Invalid credentials' });
+      res.status(401).json({ error: 'Invalid email or password',errorCode: 'INVALID_CREDENTIALS'  });
       return;
     }
 
     req.session.userId = user._id; 
-
-    console.log(req.session.userId, "session")
     const userResponse: IUserResponse = {
       _id: user._id,
       firstName: user.firstName,

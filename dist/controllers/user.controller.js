@@ -37,7 +37,6 @@ const loginUser = (req, res) => __awaiter(void 0, void 0, void 0, function* () {
             return;
         }
         req.session.userId = user._id;
-        console.log(req.session.userId, "session");
         const userResponse = {
             _id: user._id,
             firstName: user.firstName,

@@ -8,7 +8,6 @@ const cookie_parser_1 = __importDefault(require("cookie-parser"));
 const requireAuth = (req, res, next) => {
     (0, cookie_parser_1.default)()(req, res, () => {
         const sessionId = req.cookies['connect.sid'];
-        console.log(sessionId, "fffff");
         if (!sessionId) {
             res.status(401).json({ error: 'Unauthorized: Please log in' });
             return;

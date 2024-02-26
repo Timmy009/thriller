@@ -5,7 +5,6 @@ export const requireAuth = (req: Request, res: Response, next: NextFunction): vo
   cookieParser()(req, res, () => {
    const sessionId = req.cookies['connect.sid'];
 
-    console.log(sessionId, "fffff")
 
     if (!sessionId) {
       res.status(401).json({ error: 'Unauthorized: Please log in' });
