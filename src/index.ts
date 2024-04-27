@@ -2,7 +2,7 @@
 import mongoose from "mongoose";import express from 'express';
 import config from "config";
 import useCconnect from './util/use-connect';
-import routes from './routers';
+import routes from './routes';
 import cors from "cors";
 import logger from './util/logger';
 import session from 'express-session';

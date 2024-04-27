@@ -11,7 +11,7 @@ export const requireAuth = (req: Request, res: Response, next: NextFunction): vo
       return;
     }
 
-    // Set the session ID in req.session.userId
+
     req.session.userId = sessionId;
 
     next();
